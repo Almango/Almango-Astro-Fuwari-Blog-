@@ -1,0 +1,37 @@
+---
+
+import { profileConfig } from "../config";
+import { url } from "../utils/url-utils";
+
+const currentYear = new Date().getFullYear();
+---
+
+<!--<div class="border-t border-[var(&#45;&#45;primary)] mx-16 border-dashed py-8 max-w-[var(&#45;&#45;page-width)] flex flex-col items-center justify-center px-6">-->
+<div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div>
+<!--<div class="transition bg-[oklch(92%_0.01_var(&#45;&#45;hue))] dark:bg-black rounded-2xl py-8 mt-4 mb-8 flex flex-col items-center justify-center px-6">-->
+<div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6">
+    
+    
+    <div class="transition text-50 text-sm text-center">
+        
+    <div style="display:flex;text-align:center;font-size:12px;color: rgb(0 0 0 / 0.5);flex-direction: row;flex-wrap: wrap;justify-content: center;">
+        <p style="padding:10px;color:var(--primary)">🩷萌ICP备:<a href="https://icp.gov.moe/?keyword=20240146">20240146</a></p>
+        <p style="padding:10px;color:var(--primary)">🍵茶ICP备:<a href="https://icp.redcha.cn/key.php?id=2025080043">2025080043</a></p>
+        <p style="padding:10px;color:var(--primary)">🌸樱ICP备:<a href="https://icp.sakura.ink/">2508210339</a></p>
+    </div>
+    <div style="display:flex;flex-direction: row;flex-wrap: wrap;justify-content: center;">
+    
+    <a href="https://ipw.cn/ssl/?site=ipw.cn" title="本站支持SSL安全访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持SSL安全访问" src="https://static.ipw.cn/icon/ssl-s1.svg"></a>
+    <a href="https://ipw.cn/ipv6webcheck/?site=ipw.cn" title="本站支持IPv6访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持IPv6访问" src="https://static.ipw.cn/icon/ipv6-s2.svg"></a>
+    <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+        <img style="height:28px;margin-top:3.5px" src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+    </a>
+    </div>
+        &copy; <span id="copyright-year">{currentYear}</span> {profileConfig.name}. All Rights Reserved. /
+        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('rss.xml')}>RSS</a> /
+        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('sitemap-index.xml')}>Sitemap</a><br>
+        Powered by
+        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build">Astro</a> &
+        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a>
+    </div>
+</div>

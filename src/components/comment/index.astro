@@ -1,0 +1,20 @@
+---
+import { commentConfig } from "@/config";
+import Twikoo from "./Twikoo.astro";
+
+interface Props {
+	path: string;
+}
+
+const { path } = Astro.props;
+
+// 为每个页面生成唯一的 ID
+const commentId = `tcomment-${path.replace(/[^a-zA-Z0-9]/g, "-")}`;
+---
+{commentConfig?.enable && commentConfig?.twikoo && (
+  <div class="card-base p-6 mb-4">
+    <!-- 评论容器 -->
+    <Twikoo path={path} commentId={commentId} />
+  </div>
+)}
+

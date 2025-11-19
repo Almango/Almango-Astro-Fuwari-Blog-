@@ -1,0 +1,148 @@
+---
+import { commentConfig } from "@/config";
+
+interface Props {
+	path: string;
+	commentId: string;
+}
+
+const { commentId } = Astro.props;
+---
+
+<div id={commentId}></div>
+<script is:inline src="https://cdn.staticfile.org/twikoo/1.6.39/twikoo.all.min.js"></script>
+<script is:inline define:vars={{ commentConfig, commentId }}>
+  // 全局管理 Twikoo 实例，避免重复初始化
+  if (!window.twikooInstances) {
+    window.twikooInstances = new Map();
+  }
+  
+  function getCurrentPath() {
+    const pathname = window.location.pathname;
+    return pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+  }
+  
+  // 阻止评论区内按钮的默认跳转行为
+  function preventCommentLinkJump() {
+    const commentContainer = document.getElementById(commentId);
+    if (!commentContainer) return;
+    
+    // 阻止所有评论相关按钮的默认行为
+    const preventDefault = (selector) => {
+      const elements = commentContainer.querySelectorAll(selector);
+      elements.forEach(element => {
+        element.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+      });
+    };
+    
+    // 阻止点赞按钮
+    preventDefault('.tk-action-icon');
+    
+    // 阻止回复按钮
+    preventDefault('.tk-action-link');
+    
+    // 阻止其他可能引起跳转的链接
+    preventDefault('.tk-comment a:not(.tk-content a)');
+    preventDefault('.tk-meta a');
+    
+    // 使用 MutationObserver 监听动态添加的元素
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length) {
+          // 重新绑定事件到新添加的元素
+          preventDefault('.tk-action-icon');
+          preventDefault('.tk-action-link');
+          preventDefault('.tk-comment a:not(.tk-content a)');
+          preventDefault('.tk-meta a');
+        }
+      });
+    });
+    
+    observer.observe(commentContainer, {
+      childList: true,
+      subtree: true
+    });
+    
+    console.log('Comment link jump prevention initialized for:', commentId);
+  }
+  
+  function initTwikoo() {
+    console.log('Initializing Twikoo for:', commentId);
+    
+    // 清理之前的实例
+    if (window.twikooInstances.has(commentId)) {
+      const oldInstance = window.twikooInstances.get(commentId);
+      if (oldInstance && oldInstance.destroy) {
+        oldInstance.destroy();
+      }
+      window.twikooInstances.delete(commentId);
+    }
+    
+    if (typeof twikoo !== 'undefined') {
+      const commentEl = document.getElementById(commentId);
+      if (commentEl) {
+        console.log('Found comment element:', commentId);
+        commentEl.innerHTML = ''; // 清空容器
+        
+        twikoo.init({
+          envId: commentConfig.twikoo.envId,
+          path: getCurrentPath(),
+          el: `#${commentId}`,
+          avatar: commentConfig.twikoo.avatar || 'mp',
+          lang: 'zh-CN',
+          requiredFields: ['nick', 'mail'],
+          region: commentConfig.twikoo.region
+        }).then((instance) => {
+          console.log('Twikoo initialized successfully for:', commentId);
+          // 保存实例引用
+          window.twikooInstances.set(commentId, instance);
+          
+          // 阻止评论区内按钮的默认跳转行为
+          setTimeout(() => {
+            preventCommentLinkJump();
+          }, 1000);
+        }).catch(error => {
+          console.error('Twikoo initialization failed:', error);
+          // 显示错误信息
+          commentEl.innerHTML = '<div style="color: var(--text-50); padding: 20px; text-align: center;">评论加载失败，请刷新页面重试</div>';
+        });
+      } else {
+        console.error('Comment element not found:', commentId);
+      }
+    } else {
+      console.log('Twikoo not yet loaded, retrying...');
+      setTimeout(initTwikoo, 500);
+    }
+  }
+  
+  // 页面切换时的清理函数
+  function cleanupTwikoo() {
+    if (window.twikooInstances.has(commentId)) {
+      const oldInstance = window.twikooInstances.get(commentId);
+      if (oldInstance && oldInstance.destroy) {
+        oldInstance.destroy();
+      }
+      window.twikooInstances.delete(commentId);
+    }
+  }
+  
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTwikoo);
+  } else {
+    initTwikoo();
+  }
+  
+  // Swup 页面切换时的处理
+  if (window.swup?.hooks) {
+    // 页面切换前清理
+    window.swup.hooks.on('visit:start', cleanupTwikoo);
+    // 页面切换后重新初始化
+    window.swup.hooks.on('content:replace', () => {
+      setTimeout(initTwikoo, 300);
+    });
+  }
+</script>

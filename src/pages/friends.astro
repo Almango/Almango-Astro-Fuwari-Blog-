@@ -1,0 +1,208 @@
+---
+import Comment from "../components/comment/index.astro";
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+
+// 友链数据配置
+const friends = [
+	{
+		name: "松坂希奈子",
+		description: "这个世界很大❤",
+		url: "https://blog.mysqil.com/",
+		avatar: "https://blog.mysqil.com/_astro/avatar.Nvq3-FmN_Z28HWf5.webp",
+	},
+	{
+		name: "张洪Heo",
+		description: "分享设计与科技生活",
+		url: "https://blog.zhheo.com/",
+		avatar: "https://bu.dusays.com/2022/12/28/63ac2812183aa.png",
+	},
+	{
+		name: "定の栈",
+		description: "LINK START!",
+		url: "https://saop.cc",
+		avatar: "https://saop.cc/avatar.webp",
+	},
+	{
+		name: "栖童の小站",
+		description: "越努力，越幸运.",
+		url: "https://blog.linux-qitong.top/",
+		avatar: "https://blog.linux-qitong.top/img/avatar.webp",
+	},
+	{
+		name: "卿以君歌",
+		description: "幻术的世界有什么不好？",
+		url: "https://www.mekimto.cn/",
+		avatar: "https://q1.qlogo.cn/g?b=qq&nk=2882740&s=100",
+	},
+	{
+		name: "Revincx",
+		description: "可爱就是正义~",
+		url: "https://blog.revincx.icu/",
+		avatar:
+			"https://cdn.jsdelivr.net/gh/Revincx/blog-assets@master/images/avatar.jpg",
+	},
+	{
+		name: "懒觉猫先生",
+		description: "阿巴阿巴阿巴..",
+		url: "https://blog.luoaicheng.cn/",
+		avatar: "https://pic.imgdb.cn/item/64c65629a9eb352efd93a379.webp",
+	},
+	{
+		name: "三玖の博客",
+		description: "Forgive or Forget.",
+		url: "https://blog.yuuka.top/",
+		avatar: "https://q1.qlogo.cn/g?b=qq&nk=1973323029&s=100",
+	},
+	{
+		name: "YOUXIANYU",
+		description: "唐人曾",
+		url: "https://youxianyu.cn/",
+		avatar: "https://www.youxianyu.cn/img/c.c.jpg",
+	},
+	{
+		name: "探人间",
+		description: "努力吃上更贵的雪糕！",
+		url: "https://www.hydsb0.com",
+		avatar: "https://s21.ax1x.com/2025/07/13/pVlsr8S.jpg",
+	},
+	{
+		name: "李小白",
+		description: "风共舞，随心而行",
+		url: "https://blog.lxb.icu/",
+		avatar: "https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640",
+	},
+	{
+		name: "清欲の小窝",
+		description: "沙雕网友清欲的碎碎念",
+		url: "https://blog.leoo.fun",
+		avatar: "https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg",
+	},
+	{
+		name: "鈴奈咲桜",
+		description: "愛することを忘れないで",
+		url: "https://blog.sakura.ink",
+		avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=2731443459&spec=5",
+	},
+	{
+		name: "JustPureH2O",
+		description: "穷方圆平直之情，尽规矩准绳之用。",
+		url: "https://justpureh2o.cn",
+		avatar: "https://img.justpureh2o.cn/image/667f85b1d9c307b7e9ef9f2c.jpg",
+	},
+	{
+		name: "bbb-lsy07",
+		description: "科技激荡人文，洞见智慧本真。",
+		url: "https://blog.6uu.us/",
+		avatar:
+			"https://blog.6uu.us/upload/87790bc9-63eb-4420-ae4f-75872fec057d.png",
+	},
+	{
+		name: "ElysiumStack",
+		description: "不会摄影的设计师不是优秀的旅行家",
+		url: "https://www.elysium-stack.cn/",
+		avatar:
+			"https://www.elysium-stack.cn/upload/ee0757e6-ebb4-46d0-a388-660f648653ea.jpg",
+	},
+	{
+		name: "小林の木屋",
+		description: "一个黑客小子！",
+		url: "https://www.wjlin0.com",
+		avatar: "https://www.wjlin0.com/upload/log.png",
+	},
+	{
+		name: "ATao-Blog",
+		description: "做自己喜欢的事",
+		url: "https://blog.atao.cyou",
+		avatar: "https://cdn.taonotespace.com/Web/Avatar.png",
+	},
+	{
+		name: "mccsjs",
+		description: "素敵な一日が始まります🎉🎉🎉",
+		url: "https://mccsjs.eu.org/",
+		avatar: "https://mccsjs.eu.org/img/head.jpg",
+	},
+	{
+		name: "萧北",
+		description: "拥抱变化，享受过程",
+		url: "https://xn--djrr55i.top/",
+		avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=3790300010&spec=5",
+	},
+];
+---
+
+<MainGridLayout title={i18n(I18nKey.friends)} description={i18n(I18nKey.friends)}>
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-8 relative w-full">
+            <!-- 页面标题 -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[var(--primary)]" viewBox="0 0 24 24">
+                        <path fill="currentColor" fill-rule="evenodd" d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm1.91 8.773V7.545A2.545 2.545 0 0 1 9.454 5h3.181c.176 0 .319.142.319.318v2.227A2.546 2.546 0 0 1 15.5 5h3.182c.176 0 .318.142.318.318v2.546a.32.32 0 0 1-.318.318H17.09a.636.636 0 0 0-.637.636v.955h1.591c.176 0 .319.142.319.318v2.227a.32.32 0 0 1-.319.318h-1.59v6.046a.32.32 0 0 1-.319.318h-2.863a.32.32 0 0 1-.319-.318v-6.046H10.41v6.046a.32.32 0 0 1-.318.318H7.227a.32.32 0 0 1-.318-.318v-6.046H5.32a.32.32 0 0 1-.32-.318v-2.227c0-.176.142-.318.318-.318zm6.044 0v-1.91a.32.32 0 0 1-.318.319h-1.59a.636.636 0 0 0-.637.636v.955z" clip-rule="evenodd"/>
+                    </svg>
+                    <h1 class="text-3xl font-bold text-90">{i18n(I18nKey.friends)}</h1>
+                </div>
+                <!-- 友链统计 -->
+                <p class="text-50 text-sm">
+                    共有 <span class="text-[var(--primary)] font-semibold">{friends.length}</span> 位朋友
+                </p>
+            </div>
+
+            
+            <!-- 友链网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {friends.map((friend) => (
+                    <a href={friend.url} target="_blank" rel="noopener noreferrer" 
+                       class="block p-6 rounded-lg bg-[var(--btn-plain-bg-hover)] hover:bg-[var(--btn-regular-bg-hover)] transition-colors duration-200">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0">
+                                <img src={friend.avatar} alt={friend.name} 
+                                     class="w-12 h-12 rounded-lg object-cover"
+                                     onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=default'">
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-lg font-semibold text-90 truncate hover:text-[var(--primary)] transition-colors duration-200">
+                                    {friend.name}
+                                </h3>
+                                <p class="text-sm text-75 line-clamp-2 mt-1">
+                                    {friend.description}
+                                </p>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <svg class="w-5 h-5 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                ))}
+            </div>
+           
+           
+           <!-- 友链网格 --><br>
+            <div class="mb-12 p-6 rounded-lg bg-[var(--btn-plain-bg-hover)] border-l-4 border-[var(--primary)]">
+                <h3 class="text-lg font-semibold mb-3 text-90">友链申请格式</h3>
+                <div class="space-y-2 text-75 text-sm">
+                    <p><strong>名称：</strong>Almango' Blog</p>
+                    <p><strong>描述：</strong>天真永不消逝，浪漫至死不渝。</p>
+                    <p><strong>链接：</strong>https://blog.almango.cn/</p>
+                    <p><strong>头像：</strong>https://blog.almango.cn/avatar.png</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 评论区 --><br>
+    <Comment path="/friends/" />
+
+</MainGridLayout>
+
+<style>
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
