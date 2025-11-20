@@ -50,12 +50,12 @@ export const navBarConfig: NavBarConfig = {
 		},
 		{
 			name: "动态",
-			url: "/#/",
+			url: "/record/",
 			external: false,
 		},
 		{
 			name: "朋友圈",
-			url: "/#/",
+			url: "/circle/",
 			external: false,
 		},
 		LinkPreset.About,

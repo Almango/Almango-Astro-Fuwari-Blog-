@@ -5,6 +5,7 @@ pinned: false
 cover: img/cover/hexo.jpg             # 设置文章封面
 category: Hexo                       # 添加分类
 draft: false
+slug: "88448d6f"
 ---
 
 

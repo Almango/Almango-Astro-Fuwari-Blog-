@@ -5,6 +5,7 @@ cover: http://testingcf.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_cpp6_
 top_img: false
 tags: [C++,]                               # 添加分类
 category: 学习笔记 
+slug: "79c36a4c"
 ---
 # 单链表
 >👍要想写单链表，首先得搞明白链表的概念

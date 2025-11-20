@@ -5,6 +5,7 @@ cover: img/cover/unity.jpg
 top_img: false
 tags: [Unity. Unity2D]
 category: 学习笔记
+slug: "b122fcb8"
 ---
 
 > 时隔一年，我又重新回到了Unity2D，但这次我是带着一个新的希望来的。

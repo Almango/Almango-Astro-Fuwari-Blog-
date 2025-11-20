@@ -5,6 +5,7 @@ cover: img/cover/electron.png
 top_img: false
 tags: [Electron]                                
 category: 学习笔记
+slug: "e256093f"
 ---
 > **这是我写的一篇关于Electron的文章**，这也代表着我已经开始学习桌面应用开发了。很难Electron居然是通过Html，css，js这三件套来开发应用的，想到我已经近三年没有写过web了（除了Hexo和css），没想到居然能在这应用上我最擅长的……😁😁，太幸运了。
 > 当时我学习C++的时候，一部分原因就是因为QT（我想开发桌面应用），但Electron的出现让我有了转机，我可以通过web快速的构建一个理想美观的应用程序，我一开始以为需要vue或者react，后来才知道，这两个只是Electron所支持的两个框架而已……关于这两个框架我以后再说吧……

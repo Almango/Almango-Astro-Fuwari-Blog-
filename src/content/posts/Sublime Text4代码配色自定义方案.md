@@ -5,6 +5,7 @@ cover: img/cover/sublime.jpg         # 设置文章封面
 top_img: false
 tags: [美化, 开发工具]                                # 添加分类
 category: IDE
+slug: "3c3a3570"
 ---
 
 @[toc]

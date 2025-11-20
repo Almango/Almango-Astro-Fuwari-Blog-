@@ -4,6 +4,7 @@ published: 2024-06-16 15:55:00
 cover: img/cover/csharp.jpg           # 设置文章封面
 tags: [C#, .NET]                                # 添加分类
 category: 学习笔记 
+slug: "b101b397"
 ---
 
 ## 什么是封装？

@@ -5,6 +5,7 @@ pinned: false
 tags: [Hexo,]                                # 添加分类
 category: 魔改
 draft: false
+slug: "f39358af"
 ---
 
 

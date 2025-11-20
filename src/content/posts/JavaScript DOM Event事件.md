@@ -5,6 +5,7 @@ published: 2024-08-08 22:32:02             # 设置发布时间（默认不设�
 top_img: false
 tags: [JS]                                # 添加分类
 category: 学习笔记
+slug: "bd510a3f"
 ---
 
 ## 事件

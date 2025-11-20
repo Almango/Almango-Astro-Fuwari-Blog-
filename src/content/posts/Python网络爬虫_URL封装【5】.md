@@ -5,6 +5,7 @@ cover: img/cover/python.jpg         # 设置文章封面
 top_img: false
 tags: [Python, Socket, 网络编程]                                # 添加分类
 category: 学习笔记 
+slug: "4dadb955"
 ---
 
 为了达到便于管理的目的，大多网站会对网页的URL地址采取封装措施。

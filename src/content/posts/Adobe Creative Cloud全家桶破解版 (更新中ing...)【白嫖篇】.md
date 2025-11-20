@@ -6,6 +6,7 @@ cover: img/cover/adobe.jpg           # 设置文章封面
 tags: [Adobe]
 category: 白嫖
 draft: false
+slug: "a30cdb00"
 ---
 
 

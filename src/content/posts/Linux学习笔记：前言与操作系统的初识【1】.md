@@ -5,6 +5,7 @@ cover: img/cover/Linux.jpg           # 设置文章封面
 top_img: false
 tags: [Linux,操作系统,开源]                               # 添加分类
 category: Linux 
+slug: "1191727d"
 ---
 
 ## 前言

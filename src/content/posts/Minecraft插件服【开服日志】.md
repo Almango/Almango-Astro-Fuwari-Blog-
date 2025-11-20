@@ -5,6 +5,7 @@ top_img: false
 # cover: https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/EXPLORE_PDPScreenshotRefresh2024_multipleBiomes_01.png           # 设置文章封面
 tags: [插件,MC]                                # 添加分类
 category: Minecraft
+slug: "f8b9420c"
 ---
 
 > **文章内容**
@@ -80,7 +81,7 @@ playerlist-objective:
   enabled: true
   value: "%ping%"
   fancy-value: "&7Ping: %ping%"
-  title: "Java Edition is better" # Only visible on Bedrock Edition
+  title: "Java Edition is better"
   render-type: INTEGER
   disable-condition: '%world%=disabledworld'
 ```

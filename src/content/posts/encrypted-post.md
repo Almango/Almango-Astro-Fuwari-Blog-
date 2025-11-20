@@ -7,6 +7,7 @@ pinned: false
 password: "123456"
 tags: ["Test", "Encryption"]
 category: "Technology"
+slug: "18ed4da9"
 ---
 
 This blog template is built with [Astro](https://astro.build/). For the things that are not mentioned in this guide, you may find the answers in the [Astro Docs](https://docs.astro.build/).

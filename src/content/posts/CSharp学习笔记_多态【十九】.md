@@ -4,6 +4,7 @@ published: 2024-06-17 21:10:18
 cover: img/cover/csharp.jpg           # 设置文章封面
 tags: [C#, .NET]                                # 添加分类
 category: 学习笔记 
+slug: "63a8df61"
 ---
 
 ## 前言

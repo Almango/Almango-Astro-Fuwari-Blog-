@@ -5,6 +5,7 @@ pinned: false
 tags: [Hexo, DIY]                               # 添加分类
 category: 魔改
 draft: false
+slug: "ccb4a4f2"
 ---
 
 

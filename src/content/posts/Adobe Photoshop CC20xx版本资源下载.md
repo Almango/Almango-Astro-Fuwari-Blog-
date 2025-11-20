@@ -5,6 +5,7 @@ pinned: false
 cover: img/cover/ps.png            # 设置文章封面
 category: 白嫖
 draft: false
+slug: "5818bcf7"
 ---
 
 

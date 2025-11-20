@@ -5,6 +5,7 @@ cover: img/cover/sublime.jpg         # 设置文章封面
 top_img: false
 tags: [C#, .NET, 开发工具]                                # 添加分类
 category: IDE 
+slug: "353077b0"
 ---
 
 @[TOC](这里写自定义目录标题)

@@ -5,6 +5,7 @@ cover: img/cover/python.jpg           # 设置文章封面
 top_img: false
 tags: [Python, Socket, 网络编程]                                # 添加分类
 category: 学习笔记 
+slug: "7cc3999a"
 ---
 ## 一. 前言
 1. 前一期的简单通信只是草草的说到了它能够达到通信的效果，但它并不是很灵活，因为它没法自定义客户端要发送的内容，并且只能够发送一次消息至服务器。现在完善一下代码。

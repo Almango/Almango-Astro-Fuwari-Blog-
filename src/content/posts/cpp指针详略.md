@@ -5,6 +5,7 @@ cover: img/cover/cpp.png          # 设置文章封面
 top_img: false
 tags: [C++,]                               # 添加分类
 category: 学习笔记 
+slug: "1ef57ac1"
 ---
 
 ## 指针

@@ -5,6 +5,7 @@ cover: img/cover/picgo.png           # 设置文章封面
 top_img: false
 tags: [图床, PicGo]                                 # 添加分类
 category: 图床
+slug: "01b09ff2"
 ---
 
 

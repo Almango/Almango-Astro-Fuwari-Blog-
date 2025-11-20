@@ -5,6 +5,7 @@ cover: img/cover/python.jpg         # 设置文章封面
 top_img: false
 tags: [Python, Socket, 网络编程]                                # 添加分类
 category: 学习笔记 
+slug: "91fa9024"
 ---
 
 > 了解HTTP协议相关知识后，我们可以尝试利用Python发送一次HTTP请求。

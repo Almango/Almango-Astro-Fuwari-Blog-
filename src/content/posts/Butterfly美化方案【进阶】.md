@@ -5,6 +5,7 @@ pinned: false
 tags: [Hexo, DIY]                               # 添加分类
 category: 魔改
 draft: false
+slug: "499f6a83"
 ---
 
 

@@ -5,6 +5,7 @@ cover: img/cover/linux.webp        # 设置文章封面
 top_img: false
 tags: [名人事迹]                               # 添加分类
 category: 名人传
+slug: "1fbc7655"
 ---
 转载文章
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/1949e4797f104f1b9e11194a963b2f99.png)

@@ -5,6 +5,7 @@ cover: img/cover/csharp.jpg            # 设置文章封面
 tags: [C#, .NET]                                # 添加分类
 category: 学习笔记 
 
+slug: "20a5f7c3"
 ---
 
 ## 什么是数组？

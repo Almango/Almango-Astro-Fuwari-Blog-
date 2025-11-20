@@ -4,6 +4,7 @@ published: 2024-07-21 15:36:23
 cover: false
 tags: [Git]
 category: Git                         # 添加分类
+slug: "2b852c80"
 ---
 
 > 由于我本人无法将本地项目推送到Github的`main`默认分支，所以这里使用的是`master`分支，当然这个可以在仓库的setting中修改默认分支。

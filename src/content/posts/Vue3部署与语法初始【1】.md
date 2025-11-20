@@ -5,6 +5,7 @@ cover: img/cover/vue.png
 top_img: false
 tags: [Vue3]
 category: 学习笔记
+slug: "45dc8b5b"
 ---
 
 # Vue

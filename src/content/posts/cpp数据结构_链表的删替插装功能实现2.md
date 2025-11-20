@@ -5,6 +5,7 @@ cover: http://testingcf.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_cpp7_
 top_img: false
 tags: [C++,]                               # 添加分类
 category: 学习笔记 
+slug: "97461e86"
 ---
 
 # 链表的基本功能

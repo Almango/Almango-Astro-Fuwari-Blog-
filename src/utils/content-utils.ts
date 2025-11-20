@@ -3,10 +3,66 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl } from "@utils/url-utils.ts";
 
+/**
+ * 自动生成永久链接（短版本，避免重复）
+ * @param title 文章标题
+ * @param existingSlugs 已存在的slug列表，用于避免重复
+ * @returns 生成的slug
+ */
+function generateAutoSlug(title: string, existingSlugs: string[] = []): string {
+	// 使用标题生成基础哈希
+	let hash = 0;
+	for (let i = 0; i < title.length; i++) {
+		const char = title.charCodeAt(i);
+		hash = ((hash << 5) - hash) + char;
+		hash = hash & hash;
+	}
+	
+	let baseSlug = Math.abs(hash).toString(36).slice(0, 8);
+	let slug = baseSlug;
+	let counter = 1;
+	
+	// 确保唯一性，如果重复则添加后缀
+	while (existingSlugs.includes(slug)) {
+		const suffix = counter.toString(36);
+		slug = baseSlug.slice(0, 8 - suffix.length) + suffix;
+		counter++;
+	}
+	
+	return slug;
+}
+
 // // Retrieve posts and sort them by publication date
 async function getRawSortedPosts() {
 	const allBlogPosts = await getCollection("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+
+	// 收集已存在的slug，用于避免重复
+	const existingSlugs: string[] = [];
+	
+	// 第一遍：收集已有slug
+	allBlogPosts.forEach((post) => {
+		if (post.data.slug) {
+			existingSlugs.push(post.data.slug);
+		}
+	});
+	
+	// 第二遍：为没有slug的文章生成唯一slug
+	allBlogPosts.forEach((post) => {
+		if (!post.data.slug) {
+			// 使用默认的slug（基于文件路径），但确保唯一性
+			let slug = post.slug;
+			let counter = 1;
+			while (existingSlugs.includes(slug)) {
+				slug = `${post.slug}-${counter}`;
+				counter++;
+			}
+			post.data.slug = slug;
+			existingSlugs.push(slug); // 添加到已存在列表
+		}
+		// 使用最终的slug（自定义或自动生成的）
+		post.slug = post.data.slug;
 	});
 
 	const sorted = allBlogPosts.sort((a, b) => {

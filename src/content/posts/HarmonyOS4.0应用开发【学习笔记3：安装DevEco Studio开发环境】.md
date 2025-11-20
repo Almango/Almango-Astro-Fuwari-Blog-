@@ -4,6 +4,7 @@ published: 2024-01-14 22:47:33             # 设置发布时间（默认不设�
 cover: img/cover/harmony.jpg           # 设置文章封面 
 category: 操作系统                          # 添加分类
 tags: [HarmonyOS]
+slug: "693c51fb"
 ---
 
 ## DevEco Studio

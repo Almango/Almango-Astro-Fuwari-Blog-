@@ -9,6 +9,7 @@ licenseName: "CC BY 4.0"
 author: Almango
 sourceLink: "https://github.com/emn178/markdown"
 draft: false
+slug: "58674a56"
 ---
 
 

@@ -7,6 +7,7 @@ tags: [Markdown, Blogging, Mermaid]
 category: Examples
 draft: false
 series: "Mizuki"
+slug: "fa419bd5"
 ---
 # Complete Guide to Markdown with Mermaid Diagrams
 

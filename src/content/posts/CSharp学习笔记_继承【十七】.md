@@ -4,6 +4,7 @@ published: 2024-06-11 13:30:40
 cover: img/cover/csharp.jpg           # 设置文章封面
 tags: [C#, .NET]                                # 添加分类
 category: 学习笔记 
+slug: "48362b9f"
 ---
 
 ## 什么是继承？

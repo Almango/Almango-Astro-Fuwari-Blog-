@@ -5,6 +5,7 @@ cover: img/cover/python.jpg         # 设置文章封面
 top_img: false
 tags: [Python, Socket, 网络编程]                                # 添加分类
 category: 学习笔记 
+slug: "4a75b71a"
 ---
 
 > 本次教程是依据个人学习心得与学习记录所做，见证的是我们的成长。

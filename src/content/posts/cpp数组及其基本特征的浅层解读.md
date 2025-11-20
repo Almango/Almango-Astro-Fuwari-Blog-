@@ -8,6 +8,7 @@ category: 学习笔记
 
 description: C++指针与结构体的出生操作
 swiper_index: 4 #置顶轮播图顺序，非负整数，数字越大越靠前
+slug: "16978d0e"
 ---
 
 

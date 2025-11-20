@@ -4,6 +4,7 @@ published: 2024-02-16 13:46:50
 cover: img/cover/csharp.jpg           # 设置文章封面
 tags: [C#, .NET]                                # 添加分类
 category: 学习笔记 
+slug: "b42cfcfd"
 ---
 
 ## 什么是循环语句？

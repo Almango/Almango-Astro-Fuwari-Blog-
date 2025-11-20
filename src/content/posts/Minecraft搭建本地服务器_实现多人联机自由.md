@@ -5,6 +5,7 @@ top_img: false
 # cover: https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/EXPLORE_PDPScreenshotRefresh2024_multipleBiomes_01.png           # 设置文章封面
 tags: [开服,MC]                                # 添加分类
 category: Minecraft
+slug: "4185c5cc"
 ---
 
 > 最近因为某些原因，我和兄弟临时转MC玩了，开始是考虑了一下冈易我的世界，但想到冈易那代理mc环境跟一坨一样，甚至高质量的光影全要钱，干脆不如玩纯净版的MC，于是就想着自己搭建一个本地服务器。虽然第一次有点麻烦，但我还是将全过程记录了下来。

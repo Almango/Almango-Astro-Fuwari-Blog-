@@ -8,6 +8,7 @@ tags: [Demo, Example, Markdown, mizuki]
 category: 'Examples'
 draft: false 
 series: "Mizuki"
+slug: "9cc7b010"
 ---
 
 ## GitHub Repository Cards

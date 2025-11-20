@@ -2,6 +2,7 @@
 title: Hello World
 published: 2024-02-24 15:48:30
 cover: img/cover/helloworld.jpg     
+slug: "b10a8db1"
 ---
 
 
