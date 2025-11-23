@@ -1,0 +1,236 @@
+---
+import { Icon } from "astro-icon/components";
+import Comment from "../components/comment/index.astro";
+import { profileConfig, siteConfig } from "../config";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+
+// 个人动态数据
+const records = [
+	{
+		id: "1",
+		content: "这是一个用于测试个人动态的测试内容",
+		published: new Date(2024, 5, 15, 14, 30),
+		location: "南昌市",
+		tags: ["测试", "日常"],
+	},
+	{
+		id: "1",
+		content: "这是一个用于测试个人动态的测试内容",
+		published: new Date(2024, 5, 15, 14, 30),
+		location: "南昌市",
+		tags: ["测试", "日常"],
+	},
+	{
+		id: "1",
+		content: "这是一个用于测试个人动态的测试内容",
+		published: new Date(2024, 5, 15, 14, 30),
+		location: "南昌市",
+		tags: ["测试", "日常"],
+	},
+	{
+		id: "2",
+		content: "这是一个用于测试个人动态的测试内容【2】",
+		published: new Date(2024, 5, 15, 14, 30),
+		images: [
+			"https://picsum.photos/400/300?random=11",
+			"https://picsum.photos/400/300?random=33",
+			"https://picsum.photos/400/300?random=134",
+		],
+		location: "南昌市",
+		tags: ["测试", "日常"],
+	},
+];
+
+// 按发布时间排序（最新的在前）
+const sortedRecords = records.sort(
+	(a, b) => b.published.getTime() - a.published.getTime(),
+);
+
+// 页面标题和描述
+const title = "个人动态";
+const description = "记录生活中的点点滴滴";
+
+// 从配置中获取作者信息
+const authorName = profileConfig.name || "博主";
+const authorAvatar = profileConfig.avatar || "";
+---
+
+<MainGridLayout 
+  title={title} 
+  description={description}
+>
+  <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-9 py-8 relative w-full">
+      <!-- 页面标题 -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="2em" class="text-[var(--primary)]" viewBox="0 0 448 512"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm261.8 107.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-23.8 23.8l-71-71l23.8-23.8c15.6-15.6 40.9-15.6 56.6 0M119.9 289l91.5-91.6l71 71l-91.6 91.5c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>          <h1 class="text-3xl font-bold text-90">{title}</h1>
+        </div>
+        <!-- 动态统计 -->
+         <p class="text-50 text-sm">
+           共有 <span class="text-[var(--primary)] font-semibold">{sortedRecords.length}</span> 条动态  (本页灵感来源：<a style="color: var(--primary);" href="https://blog.linux-qitong.top/essay">栖童</a>)
+         </p>
+      </div>
+
+      <!-- 动态列表 -->
+      <div class="max-w-3xl mx-auto space-y-6">
+        {sortedRecords.map((record) => (
+          <div class="record-card" id={`record-${record.id}`}>
+            <!-- 作者信息 -->
+            <div class="record-header">
+              <div class="author-info flex items-center gap-3">
+                {authorAvatar ? (
+                  <img 
+                    src={authorAvatar} 
+                    alt={authorName} 
+                    class="w-12 h-12 rounded-lg object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-12 h-12 rounded-lg bg-[var(--accent-color)] flex items-center justify-center text-white font-semibold text-lg">
+                    {authorName.charAt(0)}
+                  </div>
+                )}
+                <div class="author-details">
+                  <h3 class="author-name text-lg font-semibold text-90 flex items-center">{authorName}<Icon name="material-symbols:verified" class="ml-1 text-[#335cff]" aria-hidden="true"></Icon></h3>
+                  <div class="record-meta flex items-center gap-2 text-sm text-75">
+                    <time datetime={record.published.toISOString()}>
+                      {record.published.toLocaleDateString('zh-CN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      })}
+                    </time>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 动态内容 -->
+            <div class="record-content mt-4 text-75">
+              {record.content}
+            </div>
+            
+            <!-- 动态图片 -->
+            {record.images && record.images.length > 0 && (
+              <div class="record-images mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {record.images.map((image, index) => (
+                  <img 
+                    src={image} 
+                    alt={`动态图片 ${index + 1}`} 
+                    class="record-image w-full aspect-square rounded-lg object-cover transition-transform hover:scale-[1.02] cursor-pointer"
+                    loading="lazy"
+                    id={`image-${record.id}-${index}`}
+                    onclick="window.open(this.src, '_blank')"
+                  />
+                ))}
+              </div>
+            )}
+            
+            <!-- 标签和地点区域 -->
+            <div class="record-tags-location mt-4 flex flex-wrap items-center gap-2">
+              {record.tags && record.tags.length > 0 && (
+                <>
+                  {record.tags.map((tag, index) => {
+                    // 使用固定的颜色集合
+                    const colors = ['#3CB371', '#6A5ACD', '#DB7093', '#FA8072'];
+                    // 基于标签索引选择颜色
+                    const colorIndex = index % colors.length;
+                    return (
+                      <span class="tag px-2 py-0.5 rounded-[5px] text-xs" style={`background-color: ${colors[colorIndex]};`} id={`tag-${record.id}-${index}`}>
+                        #{tag}
+                      </span>
+                    );
+                  })}
+                </>
+              )}
+              {record.location && (
+                <span class="location px-2 py-0.5 bg-[#6495ED] rounded-[5px] text-xs text-white">
+                  📍 {record.location}
+                </span>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {sortedRecords.length === 0 && (
+        <div class="text-center py-12 text-secondary">
+          <p>暂无动态内容</p>
+        </div>
+      )}
+
+      <!-- 评论区 --><br>
+      
+    </div>
+    
+  </div><br>
+<Comment path="/record/" />
+</MainGridLayout>
+
+<style>
+.record-card {
+  background: var(--btn-plain-bg-hover);
+  border-radius: var(--radius-large);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.record-card:hover {
+  background: var(--btn-regular-bg-hover);
+}
+
+.record-content {
+  line-height: 1.6;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.record-image {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.tag {
+  color: white;
+  font-weight: 400;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .record-images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  
+  .record-image {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    /* 使用clamp确保图片有合适的最小尺寸 */
+    min-height: 120px;
+  }
+}
+
+/* 单张图片的特殊处理 */
+@media (max-width: 480px) {
+  .record-images:has(.record-image:only-child) {
+    grid-template-columns: 1fr;
+  }
+  
+  .record-images:has(.record-image:only-child) .record-image {
+    aspect-ratio: 16 / 9;
+    max-height: 240px;
+  }
+}
+</style>

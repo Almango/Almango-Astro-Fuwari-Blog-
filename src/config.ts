@@ -55,7 +55,7 @@ export const navBarConfig: NavBarConfig = {
 		},
 		{
 			name: "朋友圈",
-			url: "/circle/",
+			url: "/#/",
 			external: false,
 		},
 		LinkPreset.About,
@@ -63,7 +63,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/favicon.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "/img/favicon.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "Almango",
 	bio: "天真永不消逝，浪漫至死不渝",
 	links: [
